@@ -28,6 +28,8 @@ for (from in dbs) {
 
 # Make nodes data
 node_df <- edge2node(edge_df)
+# Define ambiguous names
+node_df$generic[node_df$specific == "module"] <- "kegg_module"
 # Use generic names in edges data
 edge_df <- apply(
     edge_df, 2L, function(col) node_df$generic[match(col, node_df$specific)]

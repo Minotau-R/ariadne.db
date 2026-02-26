@@ -14,9 +14,9 @@ meta <- list(
         DataProvider = "bioBakery",
         Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
         RDataClass = "data.frame",
-        DispatchClass = "data.frame",
-        Location_Prefix = "https://zenodo.org/",
-        RDataPath = "ChocoPhlAn.tsv"
+        DispatchClass = "Zip",
+        Location_Prefix = "https://zenodo.org/records/18788725/files/",
+        RDataPath = "ChocoPhlAn.zip"
     ),
     GO = data.frame(
         Title = "GO mappings",
@@ -32,13 +32,13 @@ meta <- list(
         DataProvider = "Gene Onthology",
         Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
         RDataClass = "data.frame",
-        DispatchClass = "data.frame",
-        Location_Prefix = "https://zenodo.org/",
-        RDataPath = "GO.tsv"
+        DispatchClass = "Zip",
+        Location_Prefix = "https://zenodo.org/records/18788725/files/",
+        RDataPath = "GO.zip"
     ),
     GM = data.frame(
-      Title = "Gut Modules",
-      Description = "Gut-Brain and Gut-Metabolic modules from Raes Lab",
+      Title = "Gut modules",
+      Description = "Gut-brain and gut-metabolic modules from Raes Lab",
       BiocVersion = "3.23",
       Genome = NA,
       SourceType = "TSV",
@@ -50,9 +50,9 @@ meta <- list(
       DataProvider = "Raes Lab",
       Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
       RDataClass = "data.frame",
-      DispatchClass = "data.frame",
-      Location_Prefix = "https://zenodo.org/",
-      RDataPath = "GM.tsv"
+      DispatchClass = "Zip",
+      Location_Prefix = "https://zenodo.org/records/18788725/files/",
+      RDataPath = "GM.zip"
     ),
     KEGG = data.frame(
         Title = "KEGG mappings",
@@ -68,9 +68,9 @@ meta <- list(
         DataProvider = "Kyoto Encyclopedia of Genes and Genomes",
         Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
         RDataClass = "data.frame",
-        DispatchClass = "data.frame",
-        Location_Prefix = "https://zenodo.org/",
-        RDataPath = "KEGG.tsv"
+        DispatchClass = "Zip",
+        Location_Prefix = "https://zenodo.org/records/18788725/files/",
+        RDataPath = "KEGG.zip"
     ),
     TIGRfams = data.frame(
       Title = "TIGRfams mappings",
@@ -86,9 +86,9 @@ meta <- list(
       DataProvider = "NCBI",
       Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
       RDataClass = "data.frame",
-      DispatchClass = "data.frame",
-      Location_Prefix = "https://zenodo.org/",
-      RDataPath = "TIGRfams.tsv"
+      DispatchClass = "Zip",
+      Location_Prefix = "https://zenodo.org/records/18788725/files/",
+      RDataPath = "TIGRfams.zip"
     ),
     UniProt = data.frame(
         Title = "UniProt mappings",
@@ -104,9 +104,9 @@ meta <- list(
         DataProvider = "UniProt",
         Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
         RDataClass = "data.frame",
-        DispatchClass = "data.frame",
-        Location_Prefix = "https://zenodo.org/",
-        RDataPath = "UniProt.tsv"
+        DispatchClass = "Zip",
+        Location_Prefix = "https://zenodo.org/records/18788725/files/",
+        RDataPath = "UniProt.zip"
     ),
     WoL = data.frame(
         Title = "WoL mappings",
@@ -122,9 +122,9 @@ meta <- list(
         DataProvider = "Web of Life",
         Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
         RDataClass = "data.frame",
-        DispatchClass = "data.frame",
-        Location_Prefix = "https://zenodo.org/",
-        RDataPath = "WoL.tsv"
+        DispatchClass = "Zip",
+        Location_Prefix = "https://zenodo.org/records/18788725/files/",
+        RDataPath = "WoL.zip"
     )
 )
 
