@@ -1,8 +1,10 @@
 
-x2y <- rbind(
-    data.frame(x = "gbm", y = c("ko", "eggnog", "tigr")),
-    data.frame(x = "gmm", y = "ko")
+# Make edges data
+edge_df <- rbind(
+    data.frame(from = "gbm", to = c("ko", "eggnog", "tigr")),
+    data.frame(from = "gmm", to = "ko")
 )
-
+# Make nodes data
+node_df <- edge2node(edge_df)
 # Create resource
-write.table(x2y, "GM.tsv", sep = "\t", row.names = FALSE)
+write_graph(edge_df, node_df, "GM")

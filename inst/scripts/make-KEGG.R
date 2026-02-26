@@ -1,31 +1,36 @@
 
 library(KEGGREST)
 
+# Find available KEGG databases
 dbs <- listDatabases() |>
-    translate_features(feature.dictionary) |>
-    unique()
-
-dbs <- c(dbs, "network")
-
-x2y <- data.frame(x = character(), y = character())
-
-for (x in dbs) {
-    
-    for (y in dbs) {
-      
-        # Try calling keggLink, capture errors
+    unique() |>
+    c("network")
+# Initialise edges data
+edge_df <- data.frame(from = character(), to = character())
+# For each source
+for (from in dbs) {
+    # For each target
+    for (to in dbs) {
+        # Try keggLink
         res <- tryCatch({
-            keggLink(x, y)
+            keggLink(to, from)
             TRUE
+        # Capture errors
         }, error = function(e) {
             FALSE
         })
-        
-        if (res) {
-            x2y <- rbind(x2y, data.frame(x, y))
+        # Store pair if successful
+        if( res ){
+            edge_df <- rbind(edge_df, data.frame(from, to))
         }
     }
 }
 
+# Make nodes data
+node_df <- edge2node(edge_df)
+# Use generic names in edges data
+edge_df <- apply(
+    edge_df, 2L, function(col) node_df$generic[match(col, node_df$specific)]
+)
 # Create resource
-write.table(x2y, "KEGG.tsv", sep = "\t", row.names = FALSE)
+write_graph(edge_df, node_df, "KEGG")

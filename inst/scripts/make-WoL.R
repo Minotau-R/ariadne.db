@@ -1,5 +1,4 @@
 
-library(rvest)
 library(stringr)
 
 # WoL v20April2021
@@ -18,15 +17,20 @@ for (d in dirs) {
     # Filter files ending with map.xz
     file_names <- c(file_names, links[str_detect(links, "map\\.xz$")])
 }
-
-x2y <- data.frame(x = "uniref90", y = file_names)
-
-x2y$y <- str_remove_all(x2y$y, ".map.xz$")
-
-x2y <- x2y[!x2y$y %in% c("component", "function", "process"), ]
-
-x2y$y[x2y$y == "all"] <- "go"
-x2y$y[x2y$y == "protein"] <- "metacyc"
-x2y$y[x2y$y == "uniref"] <- "uniref50"
-
-write.table(x2y, "WoL.tsv", sep = "\t", row.names = FALSE)
+# Initialise edges data
+edge_df <- data.frame(from = "uniref90", to = file_names)
+# Clean feature names
+edge_df$to <- str_remove_all(edge_df$to, ".map.xz$")
+# Remove unnecessary pairs
+edge_df <- edge_df[!edge_df$to %in% c("component", "function", "process"), ]
+# Make nodes data
+node_df <- edge2node(edge_df)
+# Define ambiguous names
+node_df$generic[node_df$specific == "all"] <- "go"
+node_df$generic[node_df$specific == "uniref"] <- "uniref50"
+# Use generic names in edges data
+edge_df <- apply(
+    edge_df, 2L, function(col) node_df$generic[match(col, node_df$specific)]
+)
+# Create resource
+write_graph(edge_df, node_df, "WoL")

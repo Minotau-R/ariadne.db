@@ -22,15 +22,14 @@ Depends:
     R (>= 4.1)
 Imports:
     AnnotationHub,
-    S7
+    jsonlite,
+    httr2,
+    rvest
 Suggests:
     BiocStyle,
-    httr2,
-    jsonlite,
     KEGGREST,
     remotes,
     rmarkdown,
-    rvest,
     stringr,
     testthat (>= 3.0.0)
 URL: https://github.com/Minotau-R/ariadne.db

@@ -9,13 +9,17 @@ file_names <- file_names[str_detect(file_names, "^[A-Z]+_[A-Z]+_LINK$")]
 # Clean and split file names
 file_names <- file_names |>
     str_remove_all("_LINK") |>
-    str_split("_", simplify = TRUE) |>
-    tolower()
+    str_split("_", simplify = TRUE)
 # Convert to data.frame
-x2y <- as.data.frame(file_names)
-colnames(x2y) <- c("x", "y")
-# Translate features
-x2y$x <- translate_features(x2y$x, feature.dictionary)
-x2y$y[x2y$y == "role"] <- "tigr_role"
+edge_df <- as.data.frame(file_names)
+colnames(edge_df) <- c("from", "to")
+# Make nodes data
+node_df <- edge2node(edge_df)
+# Define ambiguous names
+node_df$generic[node_df$specific == "ROLE"] <- "tigr_role"
+# Use generic names in edges data
+edge_df <- apply(
+    edge_df, 2L, function(col) node_df$generic[match(col, node_df$specific)]
+)
 # Create resource
-write.table(x2y, "TIGRfams.tsv", sep = "\t", row.names = FALSE)
+write_graph(edge_df, node_df, "TIGRfams")
