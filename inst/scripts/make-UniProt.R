@@ -1,4 +1,6 @@
 
+library(igraph)
+
 # Define first batch of pairs
 from.ids <- c("uniref50", "uniref90", "uniref100")
 to.ids <- c("taxname", "taxid", "uniprotkb", "ec")
@@ -25,5 +27,7 @@ node_df <- edge2node(edge_df)
 edge_df <- apply(
     edge_df, 2L, function(col) node_df$generic[match(col, node_df$specific)]
 )
+# Combine to graph
+graph <- graph_from_data_frame(edge_df, vertices = node_df, directed = FALSE)
 # Create resource
-write_graph(edge_df, node_df, "UniProt")
+write_graph(graph, "UniProt.graphml", format = "graphml")

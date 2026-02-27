@@ -27,6 +27,7 @@ Imports:
     rvest
 Suggests:
     BiocStyle,
+    igraph,
     KEGGREST,
     remotes,
     rmarkdown,

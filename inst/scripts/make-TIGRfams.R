@@ -1,4 +1,6 @@
 
+library(igraph)
+
 # TIGRfams v15.0
 url <- "https://ftp.ncbi.nlm.nih.gov/hmm/TIGRFAMs/release_15.0/"
 # Extract all links (anchor tags)
@@ -21,5 +23,7 @@ node_df$generic[node_df$specific == "ROLE"] <- "tigr_role"
 edge_df <- apply(
     edge_df, 2L, function(col) node_df$generic[match(col, node_df$specific)]
 )
+# Combine to graph
+graph <- graph_from_data_frame(edge_df, vertices = node_df, directed = FALSE)
 # Create resource
-write_graph(edge_df, node_df, "TIGRfams")
+write_graph(graph, "TIGRfams.graphml", format = "graphml")

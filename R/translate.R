@@ -45,6 +45,6 @@ edge2node <- function(edges){
     # Translate features
     generic <- translate_features(specific, feature.dictionary)
     # Build node
-    nodes <- data.frame(specific, generic)
+    nodes <- data.frame(generic, specific)
     return(nodes)
 }

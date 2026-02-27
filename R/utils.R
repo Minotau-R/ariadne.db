@@ -34,22 +34,3 @@ fetch_page_links <- function(url){
     
     return(links)
 }
-
-
-#' @export
-write_graph <- function(edges, nodes, dir){
-    # Create dir if absent
-    if( !dir.exists(dir) ){
-        dir.create(dir)
-    }
-    # Write edges
-    write.table(
-        edges, file.path(dir, "edges.tsv"),
-        sep = "\t", row.names = FALSE
-    )
-    # Write nodes
-    write.table(
-        nodes, file.path(dir, "nodes.tsv"),
-        sep = "\t", row.names = FALSE
-    )
-}

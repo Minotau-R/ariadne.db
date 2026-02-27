@@ -1,7 +1,7 @@
 
 meta <- list(
     ChocoPhlAn = data.frame(
-        Title = "ChocoPhlAn mappings",
+        Title = "ChocoPhlAn mappings v0.1.0",
         Description = "Linkmap of feature pairs from ChocoPhlAn",
         BiocVersion = "3.23",
         Genome = NA,
@@ -13,13 +13,13 @@ meta <- list(
         Coordinate_1_based = FALSE,
         DataProvider = "bioBakery",
         Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
-        RDataClass = "data.frame",
-        DispatchClass = "Zip",
+        RDataClass = "igraph",
+        DispatchClass = "FilePath",
         Location_Prefix = "https://zenodo.org/records/18788725/files/",
-        RDataPath = "ChocoPhlAn.zip"
+        RDataPath = "ChocoPhlAn.graphml"
     ),
     GO = data.frame(
-        Title = "GO mappings",
+        Title = "GO mappings v0.1.0",
         Description = "Linkmap of feature pairs from GO",
         BiocVersion = "3.23",
         Genome = NA,
@@ -31,13 +31,13 @@ meta <- list(
         Coordinate_1_based = FALSE,
         DataProvider = "Gene Onthology",
         Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
-        RDataClass = "data.frame",
-        DispatchClass = "Zip",
+        RDataClass = "igraph",
+        DispatchClass = "FilePath",
         Location_Prefix = "https://zenodo.org/records/18788725/files/",
-        RDataPath = "GO.zip"
+        RDataPath = "GO.graphml"
     ),
     GM = data.frame(
-      Title = "Gut modules",
+      Title = "Gut modules v0.1.0",
       Description = "Gut-brain and gut-metabolic modules from Raes Lab",
       BiocVersion = "3.23",
       Genome = NA,
@@ -49,31 +49,31 @@ meta <- list(
       Coordinate_1_based = FALSE,
       DataProvider = "Raes Lab",
       Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
-      RDataClass = "data.frame",
-      DispatchClass = "Zip",
+      RDataClass = "igraph",
+      DispatchClass = "FilePath",
       Location_Prefix = "https://zenodo.org/records/18788725/files/",
-      RDataPath = "GM.zip"
+      RDataPath = "GM.graphml"
     ),
     KEGG = data.frame(
-        Title = "KEGG mappings",
+        Title = "KEGG mappings v0.1.0",
         Description = "Linkmap of feature pairs from KEGG",
         BiocVersion = "3.23",
         Genome = NA,
         SourceType = "TSV",
         SourceUrl = "https://www.kegg.jp/",
-        SourceVersion = "v117.0, January 1, 2026",
+        SourceVersion = "v117.0 January 1 2026",
         Species = NA,
         TaxonomyId = NA,
         Coordinate_1_based = FALSE,
         DataProvider = "Kyoto Encyclopedia of Genes and Genomes",
         Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
-        RDataClass = "data.frame",
-        DispatchClass = "Zip",
+        RDataClass = "igraph",
+        DispatchClass = "FilePath",
         Location_Prefix = "https://zenodo.org/records/18788725/files/",
-        RDataPath = "KEGG.zip"
+        RDataPath = "KEGG.graphml"
     ),
     TIGRfams = data.frame(
-      Title = "TIGRfams mappings",
+      Title = "TIGRfams mappings v0.1.0",
       Description = "Linkmap of feature pairs from TIGRfams",
       BiocVersion = "3.23",
       Genome = NA,
@@ -85,13 +85,13 @@ meta <- list(
       Coordinate_1_based = FALSE,
       DataProvider = "NCBI",
       Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
-      RDataClass = "data.frame",
-      DispatchClass = "Zip",
+      RDataClass = "igraph",
+      DispatchClass = "FilePath",
       Location_Prefix = "https://zenodo.org/records/18788725/files/",
-      RDataPath = "TIGRfams.zip"
+      RDataPath = "TIGRfams.graphml"
     ),
     UniProt = data.frame(
-        Title = "UniProt mappings",
+        Title = "UniProt mappings v0.1.0",
         Description = "Linkmap of feature pairs from UniProt",
         BiocVersion = "3.23",
         Genome = NA,
@@ -103,13 +103,13 @@ meta <- list(
         Coordinate_1_based = FALSE,
         DataProvider = "UniProt",
         Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
-        RDataClass = "data.frame",
-        DispatchClass = "Zip",
+        RDataClass = "igraph",
+        DispatchClass = "FilePath",
         Location_Prefix = "https://zenodo.org/records/18788725/files/",
-        RDataPath = "UniProt.zip"
+        RDataPath = "UniProt.graphml"
     ),
     WoL = data.frame(
-        Title = "WoL mappings",
+        Title = "WoL mappings v0.1.0",
         Description = "Linkmap of feature pairs from WoL",
         BiocVersion = "3.23",
         Genome = NA,
@@ -121,10 +121,10 @@ meta <- list(
         Coordinate_1_based = FALSE,
         DataProvider = "Web of Life",
         Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
-        RDataClass = "data.frame",
-        DispatchClass = "Zip",
+        RDataClass = "igraph",
+        DispatchClass = "FilePath",
         Location_Prefix = "https://zenodo.org/records/18788725/files/",
-        RDataPath = "WoL.zip"
+        RDataPath = "WoL.graphml"
     )
 )
 

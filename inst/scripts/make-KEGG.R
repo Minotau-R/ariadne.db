@@ -1,4 +1,5 @@
 
+library(igraph)
 library(KEGGREST)
 
 # Find available KEGG databases
@@ -34,5 +35,7 @@ node_df$generic[node_df$specific == "module"] <- "kegg_module"
 edge_df <- apply(
     edge_df, 2L, function(col) node_df$generic[match(col, node_df$specific)]
 )
+# Combine to graph
+graph <- graph_from_data_frame(edge_df, vertices = node_df, directed = FALSE)
 # Create resource
-write_graph(edge_df, node_df, "KEGG")
+write_graph(graph, "KEGG.graphml", format = "graphml")
