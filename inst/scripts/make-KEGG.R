@@ -38,4 +38,4 @@ edge_df <- apply(
 # Combine to graph
 graph <- graph_from_data_frame(edge_df, vertices = node_df, directed = FALSE)
 # Create resource
-write_graph(graph, "KEGG.graphml", format = "graphml")
+write_graph(graph, "KEGG.gml", format = "gml")

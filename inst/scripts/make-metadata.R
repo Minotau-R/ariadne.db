@@ -16,7 +16,7 @@ meta <- list(
         RDataClass = "igraph",
         DispatchClass = "FilePath",
         Location_Prefix = "https://zenodo.org/records/18788725/files/",
-        RDataPath = "ChocoPhlAn.graphml"
+        RDataPath = "ChocoPhlAn.gml"
     ),
     GO = data.frame(
         Title = "GO mappings v0.1.0",
@@ -34,7 +34,7 @@ meta <- list(
         RDataClass = "igraph",
         DispatchClass = "FilePath",
         Location_Prefix = "https://zenodo.org/records/18788725/files/",
-        RDataPath = "GO.graphml"
+        RDataPath = "GO.gml"
     ),
     GM = data.frame(
       Title = "Gut modules v0.1.0",
@@ -52,7 +52,7 @@ meta <- list(
       RDataClass = "igraph",
       DispatchClass = "FilePath",
       Location_Prefix = "https://zenodo.org/records/18788725/files/",
-      RDataPath = "GM.graphml"
+      RDataPath = "GM.gml"
     ),
     KEGG = data.frame(
         Title = "KEGG mappings v0.1.0",
@@ -70,7 +70,7 @@ meta <- list(
         RDataClass = "igraph",
         DispatchClass = "FilePath",
         Location_Prefix = "https://zenodo.org/records/18788725/files/",
-        RDataPath = "KEGG.graphml"
+        RDataPath = "KEGG.gml"
     ),
     TIGRfams = data.frame(
       Title = "TIGRfams mappings v0.1.0",
@@ -88,7 +88,7 @@ meta <- list(
       RDataClass = "igraph",
       DispatchClass = "FilePath",
       Location_Prefix = "https://zenodo.org/records/18788725/files/",
-      RDataPath = "TIGRfams.graphml"
+      RDataPath = "TIGRfams.gml"
     ),
     UniProt = data.frame(
         Title = "UniProt mappings v0.1.0",
@@ -106,7 +106,7 @@ meta <- list(
         RDataClass = "igraph",
         DispatchClass = "FilePath",
         Location_Prefix = "https://zenodo.org/records/18788725/files/",
-        RDataPath = "UniProt.graphml"
+        RDataPath = "UniProt.gml"
     ),
     WoL = data.frame(
         Title = "WoL mappings v0.1.0",
@@ -124,7 +124,7 @@ meta <- list(
         RDataClass = "igraph",
         DispatchClass = "FilePath",
         Location_Prefix = "https://zenodo.org/records/18788725/files/",
-        RDataPath = "WoL.graphml"
+        RDataPath = "WoL.gml"
     )
 )
 

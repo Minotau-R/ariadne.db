@@ -17,9 +17,9 @@ colnames(edge_df) <- c("from", "to")
 node_df <- edge2node(edge_df)
 # Use generic names in edges data
 edge_df <- apply(
-    edge_df, 2L, function(col) node_df$generic[match(col, node_df$specific)]
+    edge_df, 2L, function(col) node_df$name[match(col, node_df$specific)]
 )
 # Combine to graph
 graph <- graph_from_data_frame(edge_df, vertices = node_df, directed = FALSE)
 # Create resource
-write_graph(graph, "GO.graphml", format = "graphml")
+write_graph(graph, "GO.gml", format = "gml")

@@ -27,13 +27,13 @@ edge_df <- edge_df[!edge_df$to %in% c("component", "function", "process"), ]
 # Make nodes data
 node_df <- edge2node(edge_df)
 # Define ambiguous names
-node_df$generic[node_df$specific == "all"] <- "go"
-node_df$generic[node_df$specific == "uniref"] <- "uniref50"
+node_df$name[node_df$specific == "all"] <- "go"
+node_df$name[node_df$specific == "uniref"] <- "uniref50"
 # Use generic names in edges data
 edge_df <- apply(
-    edge_df, 2L, function(col) node_df$generic[match(col, node_df$specific)]
+    edge_df, 2L, function(col) node_df$name[match(col, node_df$specific)]
 )
 # Combine to graph
 graph <- graph_from_data_frame(edge_df, vertices = node_df, directed = FALSE)
 # Create resource
-write_graph(graph, "WoL.graphml", format = "graphml")
+write_graph(graph, "WoL.gml", format = "gml")
