@@ -12,6 +12,7 @@ feature.dictionary <- list(
     pdb = "PDB",
     reactome = "Reactome",
     refseq = "RefSeq",
+    taxid = "ncbi",
     tigr = c("TIGRFAMS", "TIGRfams", "tigrfams")
 )
 

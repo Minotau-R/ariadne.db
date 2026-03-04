@@ -1,7 +1,7 @@
 
 meta <- list(
     ChocoPhlAn = data.frame(
-        Title = "ChocoPhlAn mappings v0.1.0",
+        Title = "ChocoPhlAn mappings v1",
         Description = "Linkmap of feature pairs from ChocoPhlAn",
         BiocVersion = "3.23",
         Genome = NA,
@@ -19,7 +19,7 @@ meta <- list(
         RDataPath = "ChocoPhlAn.gml"
     ),
     GO = data.frame(
-        Title = "GO mappings v0.1.0",
+        Title = "GO mappings v1",
         Description = "Linkmap of feature pairs from GO",
         BiocVersion = "3.23",
         Genome = NA,
@@ -37,7 +37,7 @@ meta <- list(
         RDataPath = "GO.gml"
     ),
     GM = data.frame(
-      Title = "Gut modules v0.1.0",
+      Title = "Gut modules v1",
       Description = "Gut-brain and gut-metabolic modules from Raes Lab",
       BiocVersion = "3.23",
       Genome = NA,
@@ -55,7 +55,7 @@ meta <- list(
       RDataPath = "GM.gml"
     ),
     KEGG = data.frame(
-        Title = "KEGG mappings v0.1.0",
+        Title = "KEGG mappings v1",
         Description = "Linkmap of feature pairs from KEGG",
         BiocVersion = "3.23",
         Genome = NA,
@@ -72,8 +72,26 @@ meta <- list(
         Location_Prefix = "https://zenodo.org/records/18788725/files/",
         RDataPath = "KEGG.gml"
     ),
+    OTT = data.frame(
+        Title = "OTT mappings v1",
+        Description = "Linkmap of feature pairs from OTT",
+        BiocVersion = "3.23",
+        Genome = NA,
+        SourceType = "TSV",
+        SourceUrl = "https://opentreeoflife.github.io/",
+        SourceVersion = "v3.7",
+        Species = NA,
+        TaxonomyId = NA,
+        Coordinate_1_based = FALSE,
+        DataProvider = "Open Tree Taxonomy",
+        Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
+        RDataClass = "igraph",
+        DispatchClass = "FilePath",
+        Location_Prefix = "https://zenodo.org/records/18788725/files/",
+        RDataPath = "OTT.gml"
+    ),
     TIGRfams = data.frame(
-      Title = "TIGRfams mappings v0.1.0",
+      Title = "TIGRfams mappings v1",
       Description = "Linkmap of feature pairs from TIGRfams",
       BiocVersion = "3.23",
       Genome = NA,
@@ -91,7 +109,7 @@ meta <- list(
       RDataPath = "TIGRfams.gml"
     ),
     UniProt = data.frame(
-        Title = "UniProt mappings v0.1.0",
+        Title = "UniProt mappings v1",
         Description = "Linkmap of feature pairs from UniProt",
         BiocVersion = "3.23",
         Genome = NA,
@@ -109,7 +127,7 @@ meta <- list(
         RDataPath = "UniProt.gml"
     ),
     WoL = data.frame(
-        Title = "WoL mappings v0.1.0",
+        Title = "WoL mappings v1",
         Description = "Linkmap of feature pairs from WoL",
         BiocVersion = "3.23",
         Genome = NA,

@@ -23,17 +23,14 @@ edge_df <- data.frame(from = "uniref90", to = file_names)
 # Clean feature names
 edge_df$to <- str_remove_all(edge_df$to, ".map.xz$")
 # Remove unnecessary pairs
-edge_df <- edge_df[!edge_df$to %in% c("component", "function", "process"), ]
+edge_df <- edge_df[!edge_df$to %in% c("component", "function", "process", "uniref"), ]
 # Make nodes data
 node_df <- edge2node(edge_df)
 # Define ambiguous names
 node_df$name[node_df$specific == "all"] <- "go"
-node_df$name[node_df$specific == "uniref"] <- "uniref50"
 # Use generic names in edges data
-edge_df <- apply(
-    edge_df, 2L, function(col) node_df$name[match(col, node_df$specific)]
-)
+edge_df[] <- lapply(edge_df, function(col) node_df$name[match(col, node_df$specific)])
 # Combine to graph
-graph <- graph_from_data_frame(edge_df, vertices = node_df, directed = FALSE)
+graph <- graph_from_data_frame(edge_df, vertices = node_df, directed = TRUE)
 # Create resource
 write_graph(graph, "WoL.gml", format = "gml")

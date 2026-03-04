@@ -30,12 +30,10 @@ for (from in dbs) {
 # Make nodes data
 node_df <- edge2node(edge_df)
 # Define ambiguous names
-node_df$generic[node_df$specific == "module"] <- "kegg_module"
+node_df$name[node_df$specific == "module"] <- "kegg_module"
 # Use generic names in edges data
-edge_df <- apply(
-    edge_df, 2L, function(col) node_df$generic[match(col, node_df$specific)]
-)
+edge_df[] <- lapply(edge_df, function(col) node_df$name[match(col, node_df$specific)])
 # Combine to graph
-graph <- graph_from_data_frame(edge_df, vertices = node_df, directed = FALSE)
+graph <- graph_from_data_frame(edge_df, vertices = node_df, directed = TRUE)
 # Create resource
 write_graph(graph, "KEGG.gml", format = "gml")
