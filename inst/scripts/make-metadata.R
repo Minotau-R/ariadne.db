@@ -1,5 +1,23 @@
 
 meta <- list(
+    BugSigDB = data.frame(
+        Title = "BugSigDB mappings v1",
+        Description = "Linkmap of feature pairs from BugSigDB",
+        BiocVersion = "3.23",
+        Genome = NA,
+        SourceType = "TSV",
+        SourceUrl = "https://zenodo.org/records/15272273",
+        SourceVersion = "v1.3.0",
+        Species = NA,
+        TaxonomyId = NA,
+        Coordinate_1_based = FALSE,
+        DataProvider = "BugSigDB",
+        Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
+        RDataClass = "igraph",
+        DispatchClass = "FilePath",
+        Location_Prefix = "https://zenodo.org/records/18788725/files/",
+        RDataPath = "BugSigDB.gml"
+    ),
     ChocoPhlAn = data.frame(
         Title = "ChocoPhlAn mappings v1",
         Description = "Linkmap of feature pairs from ChocoPhlAn",

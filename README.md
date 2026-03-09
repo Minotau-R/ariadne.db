@@ -6,12 +6,14 @@
 ## Resources
 
 ariadne database containing feature mappings for various biological databases.
-Each graphml file corresponds to one source database and includes a graph:
+Each GML* file corresponds to one source database and includes a graph:
 
 - edges describe the links between source features (`from`) and target
   features (`to`)
 - nodes list the available features with their ariadne names (`name`),
   database-specific names (`specific`) and self-generated identifiers (`id`)
+
+* GML = Graph Modelling Language
 
 ## Usage
 
