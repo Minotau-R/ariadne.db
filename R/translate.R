@@ -1,19 +1,36 @@
 
 
 feature.dictionary <- list(
+    allergome = "Allergome",
+    biocyc = "BioCyc",
+    biogrid = "BioGRID",
+    biomuta = "BioMuta",
+    bugsig = "bugsigdb",
     chembl = "ChEMBL",
+    chitars = "ChiTaRS",
+    collectf = "CollecTF",
     cpd = "compound",
+    disprot = "DisProt",
+    drugbank = "DrugBank",
     ec = c("enzyme", "level4ec"),
     eggnog = "eggNOG",
+    embl = "EMBL",
+    ensembl = "Ensembl",
+    esther = "ESTHER",
     go = "GO",
+    gtop = c("GtoP", "GuidetoPHARMACOLOGY"),
     ko = "kegg",
     metacyc = "protein",
     orthodb = "OrthoDB",
     pdb = "PDB",
+    peroxibase = "PeroxiBase",
     reactome = "Reactome",
     refseq = "RefSeq",
     taxid = "ncbi",
-    tigr = c("TIGRFAMS", "TIGRfams", "tigrfams")
+    tcdb = "TCDB",
+    tigr = c("TIGRFAMS", "TIGRFAMs", "tigrfams"),
+    treefam = "TreeFam",
+    wbparasite = "WBParaSite"
 )
 
 #' @export

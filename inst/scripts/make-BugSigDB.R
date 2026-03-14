@@ -7,6 +7,7 @@ bugsigdb_id <- "15272273"
 file_names <- fetch_zenodo_resource(bugsigdb_id)
 # Filter desired file names
 file_names <- file_names[str_detect(file_names, "mixed")]
+file_names <- file_names[!str_detect(file_names, "metaphlan")]
 # Clean and split file names
 file_names <- str_remove_all(file_names, "signatures_mixed_|\\.gmt")
 file_names <- str_split(file_names, "_", simplify = TRUE)

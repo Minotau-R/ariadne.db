@@ -132,7 +132,7 @@ meta <- list(
         BiocVersion = "3.23",
         Genome = NA,
         SourceType = "TSV",
-        SourceUrl = "https://www.uniprot.org/",
+        SourceUrl = "https://sparql.uniprot.org/",
         SourceVersion = "v2026_01",
         Species = NA,
         TaxonomyId = NA,

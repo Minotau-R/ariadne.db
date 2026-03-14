@@ -19,8 +19,7 @@ edge_df <- rbind(edge_df, expand.grid(
       "Ensembl", "GeneID", "KEGG", "PATRIC", "UCSC", "WBParaSite", "eggNOG",
       "GeneTree", "HOGENOM", "OMA", "OrthoDB", "TreeFam", "BioCyc",
       "PlantReactome", "Reactome", "UniPathway", "CollecTF", "ChiTaRS",
-      "GeneWiki","GenomeRNAi", "PHI-base", "DisProt", "IDEAL"),
-  stringsAsFactors = TRUE
+      "GeneWiki","GenomeRNAi", "PHI-base", "DisProt", "IDEAL")
 ))
 # Make nodes data
 node_df <- edge2node(edge_df)
