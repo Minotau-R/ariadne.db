@@ -108,9 +108,9 @@ meta <- list(
         Location_Prefix = "https://zenodo.org/records/18788725/files/",
         RDataPath = "OTT.gml"
     ),
-    TIGRfams = data.frame(
-      Title = "TIGRfams mappings v1",
-      Description = "Linkmap of feature pairs from TIGRfams",
+    TIGRFAMs = data.frame(
+      Title = "TIGRFAMs mappings v1",
+      Description = "Linkmap of feature pairs from TIGRFAMs",
       BiocVersion = "3.23",
       Genome = NA,
       SourceType = "TSV",
@@ -124,7 +124,7 @@ meta <- list(
       RDataClass = "igraph",
       DispatchClass = "FilePath",
       Location_Prefix = "https://zenodo.org/records/18788725/files/",
-      RDataPath = "TIGRfams.gml"
+      RDataPath = "TIGRFAMs.gml"
     ),
     UniProt = data.frame(
         Title = "UniProt mappings v1",

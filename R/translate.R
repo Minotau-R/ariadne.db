@@ -28,7 +28,7 @@ feature.dictionary <- list(
     refseq = "RefSeq",
     taxid = "ncbi",
     tcdb = "TCDB",
-    tigr = c("TIGRFAMS", "TIGRFAMs", "tigrfams"),
+    tigr = c("TIGRFAMs", "tigrfams"),
     treefam = "TreeFam",
     wbparasite = "WBParaSite"
 )

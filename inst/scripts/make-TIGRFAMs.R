@@ -1,5 +1,6 @@
 
 library(igraph)
+library(stringr)
 
 # TIGRfams v15.0
 url <- "https://ftp.ncbi.nlm.nih.gov/hmm/TIGRFAMs/release_15.0/"
@@ -24,4 +25,4 @@ edge_df[] <- lapply(edge_df, function(col) node_df$name[match(col, node_df$speci
 # Combine to graph
 graph <- graph_from_data_frame(edge_df, vertices = node_df, directed = TRUE)
 # Create resource
-write_graph(graph, "TIGRfams.gml", format = "gml")
+write_graph(graph, "TIGRFAMs.gml", format = "gml")
