@@ -6,7 +6,7 @@ meta <- list(
         BiocVersion = "3.23",
         Genome = NA,
         SourceType = "TSV",
-        SourceUrl = "https://zenodo.org/records/15272273",
+        SourceUrl = "https://zenodo.org/records/15272273/",
         SourceVersion = "v1.3.0",
         Species = NA,
         TaxonomyId = NA,
@@ -15,7 +15,7 @@ meta <- list(
         Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
         RDataClass = "igraph",
         DispatchClass = "FilePath",
-        Location_Prefix = "https://zenodo.org/records/18788725/files/",
+        Location_Prefix = "https://zenodo.org/records/18788725/",
         RDataPath = "BugSigDB.gml"
     ),
     ChocoPhlAn = data.frame(
@@ -24,7 +24,7 @@ meta <- list(
         BiocVersion = "3.23",
         Genome = NA,
         SourceType = "TSV",
-        SourceUrl = "https://zenodo.org/records/17100034",
+        SourceUrl = "https://zenodo.org/records/17100034/",
         SourceVersion = "v201901b",
         Species = NA,
         TaxonomyId = NA,
@@ -33,7 +33,7 @@ meta <- list(
         Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
         RDataClass = "igraph",
         DispatchClass = "FilePath",
-        Location_Prefix = "https://zenodo.org/records/18788725/files/",
+        Location_Prefix = "https://zenodo.org/records/18788725/",
         RDataPath = "ChocoPhlAn.gml"
     ),
     GO = data.frame(
@@ -51,7 +51,7 @@ meta <- list(
         Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
         RDataClass = "igraph",
         DispatchClass = "FilePath",
-        Location_Prefix = "https://zenodo.org/records/18788725/files/",
+        Location_Prefix = "https://zenodo.org/records/18788725/",
         RDataPath = "GO.gml"
     ),
     GM = data.frame(
@@ -60,7 +60,7 @@ meta <- list(
       BiocVersion = "3.23",
       Genome = NA,
       SourceType = "TSV",
-      SourceUrl = "https://github.com/omixer/omixer-rpmR/tree/main/inst/extdata",
+      SourceUrl = "https://github.com/omixer/omixer-rpmR/tree/main/inst/extdata/",
       SourceVersion = "v1.0",
       Species = NA,
       TaxonomyId = NA,
@@ -69,7 +69,7 @@ meta <- list(
       Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
       RDataClass = "igraph",
       DispatchClass = "FilePath",
-      Location_Prefix = "https://zenodo.org/records/18788725/files/",
+      Location_Prefix = "https://zenodo.org/records/18788725/",
       RDataPath = "GM.gml"
     ),
     KEGG = data.frame(
@@ -87,7 +87,7 @@ meta <- list(
         Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
         RDataClass = "igraph",
         DispatchClass = "FilePath",
-        Location_Prefix = "https://zenodo.org/records/18788725/files/",
+        Location_Prefix = "https://zenodo.org/records/18788725/",
         RDataPath = "KEGG.gml"
     ),
     OTT = data.frame(
@@ -105,8 +105,26 @@ meta <- list(
         Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
         RDataClass = "igraph",
         DispatchClass = "FilePath",
-        Location_Prefix = "https://zenodo.org/records/18788725/files/",
+        Location_Prefix = "https://zenodo.org/records/18788725/",
         RDataPath = "OTT.gml"
+    ),
+    Rhea = data.frame(
+      Title = "Rhea mappings v1",
+      Description = "Linkmap of feature pairs from Rhea",
+      BiocVersion = "3.23",
+      Genome = NA,
+      SourceType = "TSV",
+      SourceUrl = "https://www.rhea-db.org/",
+      SourceVersion = "v140 (2026-01-28)",
+      Species = NA,
+      TaxonomyId = NA,
+      Coordinate_1_based = FALSE,
+      DataProvider = "Swiss Institute of Bioinformatics",
+      Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
+      RDataClass = "igraph",
+      DispatchClass = "FilePath",
+      Location_Prefix = "https://zenodo.org/records/18788725/",
+      RDataPath = "Rhea.gml"
     ),
     TIGRFAMs = data.frame(
       Title = "TIGRFAMs mappings v1",
@@ -123,7 +141,7 @@ meta <- list(
       Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
       RDataClass = "igraph",
       DispatchClass = "FilePath",
-      Location_Prefix = "https://zenodo.org/records/18788725/files/",
+      Location_Prefix = "https://zenodo.org/records/18788725/",
       RDataPath = "TIGRFAMs.gml"
     ),
     UniProt = data.frame(
@@ -141,7 +159,7 @@ meta <- list(
         Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
         RDataClass = "igraph",
         DispatchClass = "FilePath",
-        Location_Prefix = "https://zenodo.org/records/18788725/files/",
+        Location_Prefix = "https://zenodo.org/records/18788725/",
         RDataPath = "UniProt.gml"
     ),
     WoL = data.frame(
@@ -159,7 +177,7 @@ meta <- list(
         Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
         RDataClass = "igraph",
         DispatchClass = "FilePath",
-        Location_Prefix = "https://zenodo.org/records/18788725/files/",
+        Location_Prefix = "https://zenodo.org/records/18788725/",
         RDataPath = "WoL.gml"
     )
 )

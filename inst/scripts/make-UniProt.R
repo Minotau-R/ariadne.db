@@ -1,6 +1,8 @@
 
 library(igraph)
 
+# Set resource name
+res.name <- "UniProt"
 # Expand first combinations
 edge_df <- expand.grid(
     from = c("uniref50", "uniref90", "uniref100"),
@@ -28,4 +30,4 @@ edge_df[] <- lapply(edge_df, function(col) node_df$name[match(col, node_df$speci
 # Combine to graph
 graph <- graph_from_data_frame(edge_df, vertices = node_df, directed = TRUE)
 # Create resource
-write_graph(graph, "UniProt.gml", format = "gml")
+write_graph(graph, paste0(res.name, ".gml"), format = "gml")

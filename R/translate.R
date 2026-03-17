@@ -5,7 +5,7 @@ feature.dictionary <- list(
     biocyc = "BioCyc",
     biogrid = "BioGRID",
     biomuta = "BioMuta",
-    bugsig = "bugsigdb",
+    bugsig = c("bugsigdb", "BugSigDB"),
     chembl = "ChEMBL",
     chitars = "ChiTaRS",
     collectf = "CollecTF",
@@ -13,6 +13,7 @@ feature.dictionary <- list(
     disprot = "DisProt",
     drugbank = "DrugBank",
     ec = c("enzyme", "level4ec"),
+    ecocyc = "EcoCyc",
     eggnog = "eggNOG",
     embl = "EMBL",
     ensembl = "Ensembl",
@@ -20,7 +21,7 @@ feature.dictionary <- list(
     go = "GO",
     gtop = c("GtoP", "GuidetoPHARMACOLOGY"),
     ko = "kegg",
-    metacyc = "protein",
+    metacyc = "MetaCyc",
     orthodb = "OrthoDB",
     pdb = "PDB",
     peroxibase = "PeroxiBase",
@@ -28,7 +29,7 @@ feature.dictionary <- list(
     refseq = "RefSeq",
     taxid = "ncbi",
     tcdb = "TCDB",
-    tigr = c("TIGRFAMs", "tigrfams"),
+    tigr = c("TIGRFAMS", "TIGRFAMs", "tigrfams"),
     treefam = "TreeFam",
     wbparasite = "WBParaSite"
 )
@@ -59,7 +60,7 @@ translate_features <- function(x, dict){
 #' @export
 edge2node <- function(edges){
     # Get unique features
-    specific <- get_unique_features(edges)
+    specific <- get_unique_features(edges[ , c("from", "to")])
     # Translate features
     generic <- translate_features(specific, feature.dictionary)
     # Build node

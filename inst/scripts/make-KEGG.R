@@ -2,6 +2,8 @@
 library(igraph)
 library(KEGGREST)
 
+# Set resource name
+res.name <- "KEGG"
 # Find available KEGG databases
 dbs <- listDatabases() |>
     unique() |>
@@ -26,7 +28,6 @@ for (from in dbs) {
         }
     }
 }
-
 # Make nodes data
 node_df <- edge2node(edge_df)
 # Define ambiguous names
@@ -36,4 +37,4 @@ edge_df[] <- lapply(edge_df, function(col) node_df$name[match(col, node_df$speci
 # Combine to graph
 graph <- graph_from_data_frame(edge_df, vertices = node_df, directed = TRUE)
 # Create resource
-write_graph(graph, "KEGG.gml", format = "gml")
+write_graph(graph, paste0(res.name, ".gml"), format = "gml")

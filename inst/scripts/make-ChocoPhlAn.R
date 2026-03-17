@@ -2,9 +2,12 @@
 library(igraph)
 library(stringr)
 
-# ChocoPhlAn v201901b
-chocophlan_id <- "17100034"
-file_names <- fetch_zenodo_resource(chocophlan_id)
+# Set resource name
+res.name <- "ChocoPhlAn"
+# Set url for ChocoPhlAn v201901b
+url <- "https://zenodo.org/records/17100034/"
+# Fetch file names from Zenodo
+file_names <- fetch_zenodo_resource(basename(url))
 # Clean and split file names
 file_names <- str_remove_all(file_names, "map_|\\.txt.*")
 file_names <- str_split(file_names, "_", simplify = TRUE)
@@ -13,11 +16,16 @@ edge_df <- as.data.frame(file_names)
 colnames(edge_df) <- c("from", "to")
 # Filter name mappings
 edge_df <- edge_df[!(edge_df$from == "name" | edge_df$to == "name"), ]
+# Add url paths for resources
+edge_df <- build_paths(edge_df, res.name, url)
 # Make nodes data
 node_df <- edge2node(edge_df)
 # Use generic names in edges data
-edge_df[] <- lapply(edge_df, function(col) node_df$name[match(col, node_df$specific)])
+edge_df[ , c("from", "to")] <- lapply(
+    edge_df[ , c("from", "to")],
+    function(col) node_df$name[match(col, node_df$specific)]
+)
 # Combine to graph
 graph <- graph_from_data_frame(edge_df, vertices = node_df, directed = TRUE)
 # Create resource
-write_graph(graph, "ChocoPhlAn.gml", format = "gml")
+write_graph(graph, paste0(res.name, ".gml"), format = "gml")

@@ -2,7 +2,9 @@
 library(igraph)
 library(stringr)
 
-# WoL v20April2021
+# Set resource name
+res.name <- "WoL"
+# Set url for WoL v20April2021
 url <- "https://ftp.microbio.me/pub/wol-20April2021/function/"
 # Fetch page links
 links <- fetch_page_links(url)
@@ -24,13 +26,19 @@ edge_df <- data.frame(from = "uniref90", to = file_names)
 edge_df$to <- str_remove_all(edge_df$to, ".map.xz$")
 # Remove unnecessary pairs
 edge_df <- edge_df[!edge_df$to %in% c("component", "function", "process", "uniref"), ]
+# Add url paths for resources
+edge_df <- build_paths(edge_df, res.name, url)
 # Make nodes data
 node_df <- edge2node(edge_df)
 # Define ambiguous names
 node_df$name[node_df$specific == "all"] <- "go"
+node_df$name[node_df$specific == "protein"] <- "metacyc"
 # Use generic names in edges data
-edge_df[] <- lapply(edge_df, function(col) node_df$name[match(col, node_df$specific)])
+edge_df[ , c("from", "to")] <- lapply(
+    edge_df[ , c("from", "to")],
+    function(col) node_df$name[match(col, node_df$specific)]
+)
 # Combine to graph
 graph <- graph_from_data_frame(edge_df, vertices = node_df, directed = TRUE)
 # Create resource
-write_graph(graph, "WoL.gml", format = "gml")
+write_graph(graph, paste0(res.name, ".gml"), format = "gml")
