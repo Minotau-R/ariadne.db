@@ -31,7 +31,7 @@ build_paths <- function(edges, resource, repo){
             prefix <- ifelse(to == "ko", "kegg", prefix)
             prefix <- ifelse(to == "protein", "metacyc", prefix)
             # Create path
-            paste0(repo, "function/", prefix, "/", to, ".map.xz")
+            paste0(repo, prefix, "/", to, ".map.xz")
         },
         function(from, to, repo) NA
     )

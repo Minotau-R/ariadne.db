@@ -5,8 +5,7 @@ library(igraph)
 res.name <- "Rhea"
 # List to ids
 to.ids <- c(
-    "chebi", "ec", "ecocyc", "go", "macie", "metacyc", "reaction", "reactome",
-    "uniprotkb" 
+    "chebi", "ECOCYC", "enzyme", "GO_", "macie", "METACYC", "kegg", "reactome"
 )
 # Expand first combinations
 edge_df <- expand.grid(
@@ -16,6 +15,9 @@ edge_df <- expand.grid(
 )
 # Make nodes data
 node_df <- edge2node(edge_df)
+# Define ambiguous specifics
+node_df$name[node_df$specific == "GO_"] <- "go"
+node_df$name[node_df$specific == "kegg"] <- "reaction"
 # Use generic names in edges data
 edge_df[] <- lapply(edge_df, function(col) node_df$name[match(col, node_df$specific)])
 # Combine to graph
