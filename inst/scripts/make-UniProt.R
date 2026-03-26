@@ -6,7 +6,7 @@ res.name <- "UniProt"
 # Expand first combinations
 edge_df <- expand.grid(
     from = c("uniref50", "uniref90", "uniref100"),
-    to = c("taxname", "taxid", "uniprotkb", "enzyme"),
+    to = c("taxname", "taxid", "uniprotkb"),
     stringsAsFactors = FALSE
 )
 # Set from ids

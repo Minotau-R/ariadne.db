@@ -6,6 +6,7 @@ feature.dictionary <- list(
     biogrid = "BioGRID",
     biomuta = "BioMuta",
     bugsig = c("bugsigdb", "BugSigDB"),
+    chebi = c("ChEBI", "CHEBI"),
     chembl = "ChEMBL",
     chitars = "ChiTaRS",
     collectf = "CollecTF",

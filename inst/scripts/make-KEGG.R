@@ -1,31 +1,30 @@
 
 library(igraph)
 library(KEGGREST)
+library(utils)
 
 # Set resource name
 res.name <- "KEGG"
-# Find available KEGG databases
-dbs <- listDatabases() |>
+# Find available pairs of KEGG databases
+db_pairs <- listDatabases() |>
     unique() |>
-    c("network")
+    c("network") |>
+    combn(m = 2, simplify = FALSE)
 # Initialise edges data
 edge_df <- data.frame(from = character(), to = character())
-# For each source
-for (from in dbs) {
-    # For each target
-    for (to in dbs) {
-        # Try keggLink
-        res <- tryCatch({
-            keggLink(to, from)
-            TRUE
+# For each pair of databases
+for( pair in db_pairs ){
+    # Try keggLink
+    res <- tryCatch({
+        keggLink(pair[2], pair[1])
+        TRUE
         # Capture errors
         }, error = function(e) {
-            FALSE
-        })
-        # Store pair if successful
-        if( res ){
-            edge_df <- rbind(edge_df, data.frame(from, to))
-        }
+        FALSE
+    })
+    # Store pair if successful
+    if( res ){
+        edge_df <- rbind(edge_df, data.frame(from = pair[1], to = pair[2]))
     }
 }
 # Make nodes data

@@ -1,7 +1,7 @@
 
 # Build URL paths to resources
 #' @export
-build_paths <- function(edges, resource, repo){
+build_edge_paths <- function(edges, resource, repo){
     # Prepare function factory
     .build_path <- switch(
         resource,
@@ -43,9 +43,40 @@ build_paths <- function(edges, resource, repo){
         MoreArgs = list(repo = repo),
         USE.NAMES = FALSE
     )
-    # Add urls to edge data
+    # Add urls to edges data
     edges$url <- as.vector(paths)
     return(edges)
+}
+
+
+# Build URL paths to feature names
+#' @export
+build_node_paths <- function(nodes, resource, repo){
+    # Prepare function factory
+    .build_path <- switch(
+        resource,
+        BugSigDB = function(name, spec, repo){
+            paste0(repo, "files/bugsigdb_signatures_mixed_ncbi.gmt")
+        },
+        GM = function(name, spec, repo){
+            file_name <- switch(
+                name, gmm = "GMMs.v1.07.names", gbm = "GBMs.v1.0.names", NA
+            )
+            paste0(repo, file_name)
+        },
+        function(from, to, repo) NA
+    )
+    # Build resource paths
+    paths <- mapply(
+        FUN = .build_path,
+        name = nodes$name,
+        spec = nodes$specific,
+        MoreArgs = list(repo = repo),
+        USE.NAMES = FALSE
+    )
+    # Add urls to nodes data
+    nodes$url <- as.vector(paths)
+    return(nodes)
 }
 
 
