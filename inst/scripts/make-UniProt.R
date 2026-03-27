@@ -32,6 +32,8 @@ edge_df <- rbind(edge_df, expand.grid(
 ))
 # Make nodes data
 node_df <- edge2node(edge_df)
+# Define ambiguous names
+node_df$name[node_df$specific == "KEGG"] <- "genes"
 # Use generic names in edges data
 edge_df[] <- lapply(edge_df, function(col) node_df$name[match(col, node_df$specific)])
 # Adjust specifics for special cases

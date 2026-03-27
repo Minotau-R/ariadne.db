@@ -18,7 +18,7 @@ file_names <- str_split(file_names, "_", simplify = TRUE)
 edge_df <- as.data.frame(file_names)
 colnames(edge_df) <- c("from", "to")
 # Add url paths for resources
-edge_df <- build_paths(edge_df, res.name, url)
+edge_df <- build_edge_paths(edge_df, res.name, url)
 # Make nodes data
 node_df <- edge2node(edge_df)
 # Use generic names in edges data

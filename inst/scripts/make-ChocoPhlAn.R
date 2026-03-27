@@ -17,7 +17,7 @@ colnames(edge_df) <- c("from", "to")
 # Filter name mappings
 edge_df <- edge_df[!(edge_df$from == "name" | edge_df$to == "name"), ]
 # Add url paths for resources
-edge_df <- build_paths(edge_df, res.name, url)
+edge_df <- build_edge_paths(edge_df, res.name, url)
 # Make nodes data
 node_df <- edge2node(edge_df)
 # Use generic names in edges data

@@ -27,7 +27,7 @@ edge_df$to <- str_remove_all(edge_df$to, ".map.xz$")
 # Remove unnecessary pairs
 edge_df <- edge_df[!edge_df$to %in% c("component", "function", "process", "uniref"), ]
 # Add url paths for resources
-edge_df <- build_paths(edge_df, res.name, url)
+edge_df <- build_edge_paths(edge_df, res.name, url)
 # Make nodes data
 node_df <- edge2node(edge_df)
 # Define ambiguous names

@@ -5,13 +5,17 @@ library(utils)
 
 # Set resource name
 res.name <- "KEGG"
-# Find available pairs of KEGG databases
-db_pairs <- listDatabases() |>
-    unique() |>
-    c("network") |>
-    combn(m = 2, simplify = FALSE)
+# Find available KEGG databases
+dbs <- listDatabases() |>
+    setdiff(c("vg", "ag", "genes", "kegg")) |>
+    c("network")
+# List all possible database pairs
+db_pairs <- combn(dbs, 2, simplify = FALSE)
 # Initialise edges data
-edge_df <- data.frame(from = character(), to = character())
+edge_df <- rbind(
+    data.frame(from = "genes", to = c("ko", "ncbi-geneid", "ncbi-proteinid", "up")),
+    expand.grid(from = c("compound", "glycan", "drug"), to = c("pubchem", "chebi"))
+)
 # For each pair of databases
 for( pair in db_pairs ){
     # Try keggLink
@@ -30,7 +34,7 @@ for( pair in db_pairs ){
 # Make nodes data
 node_df <- edge2node(edge_df)
 # Define ambiguous names
-node_df$name[node_df$specific == "module"] <- "kegg_module"
+node_df$name[node_df$specific == "up"] <- "uniprotkb"
 # Use generic names in edges data
 edge_df[] <- lapply(edge_df, function(col) node_df$name[match(col, node_df$specific)])
 # Combine to graph
