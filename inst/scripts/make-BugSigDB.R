@@ -22,8 +22,8 @@ edge_df <- build_edge_paths(edge_df, res.name, url)
 # Make nodes data
 node_df <- edge2node(edge_df)
 # Use generic names in edges data
-edge_df[ , c("from", "to")] <- lapply(
-    edge_df[ , c("from", "to")],
+edge_df[c("from", "to")] <- lapply(
+    edge_df[c("from", "to")],
     function(col) node_df$name[match(col, node_df$specific)]
 )
 # Combine to graph

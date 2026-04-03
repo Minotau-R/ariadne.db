@@ -119,7 +119,7 @@ fetch_page_links <- function(url){
 
 #' @export
 #' @importFrom data.table fread
-#' @importFrom httr2 request req_method req_body_form req_body_string
+#' @importFrom httr2 request req_method req_body_form resp_body_string
 #'   req_headers req_perform
 fetch_sparql_output <- function(query, endpoint){
     # Build request with Accept header for CSV format

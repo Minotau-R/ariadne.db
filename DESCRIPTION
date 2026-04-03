@@ -28,6 +28,7 @@ Imports:
     rvest
 Suggests:
     BiocStyle,
+    dplyr,
     igraph,
     KEGGREST,
     remotes,
