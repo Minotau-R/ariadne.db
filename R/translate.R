@@ -6,6 +6,7 @@ feature.dictionary <- list(
     biogrid = "BioGRID",
     biomuta = "BioMuta",
     bugsig = c("bugsigdb", "BugSigDB"),
+    cazy = "CAZy",
     ccds = "CCDS",
     chebi = c("ChEBI", "CHEBI"),
     chembl = "ChEMBL",
@@ -18,7 +19,7 @@ feature.dictionary <- list(
     dmdm = "DMDM",
     dnasu = "DNASU",
     drugbank = "DrugBank",
-    ec = c("enzyme", "level4ec"),
+    ec = c("enzyme", "ENZYME", "level4ec"),
     ecocyc = c("EcoCyc", "ECOCYC"),
     eggnog = "eggNOG",
     embl = "EMBL",
@@ -38,6 +39,7 @@ feature.dictionary <- list(
     metacyc = c("MetaCyc", "METACYC"),
     oma = "OMA",
     orthodb = "OrthoDB",
+    pathcomms = "PathwayCommons",
     patric = "PATRIC",
     pdb = "PDB",
     peroxibase = "PeroxiBase",
@@ -54,10 +56,13 @@ feature.dictionary <- list(
     taxid = "ncbi",
     tcdb = "TCDB",
     tigr = c("TIGRFAMS", "TIGRFAMs", "tigrfams"),
+    tdp = "TopDownProteomics",
     treefam = "TreeFam",
     ucsc = "UCSC",
-    unipathway = "UniPathway",
-    wbparasite = "WBParaSite"
+    unipath = "UniPathway",
+    Xenbase = "xenbase",
+    wbparasite = "WBParaSite",
+    zfin = "ZFIN"
 )
 
 #' @export

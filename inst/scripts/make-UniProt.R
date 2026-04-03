@@ -15,21 +15,27 @@ from.ids <- c("uniprotkb", "uniref50", "uniref90", "uniref100")
 edge_df <- rbind(
     edge_df,
     data.frame(from = "taxname", to = "taxid"),
-    expand.grid(from = from.ids, to = c("enzyme", "rhea", "metacyc", "ecocyc"))
+    expand.grid(from = from.ids, to = c("rhea", "metacyc", "ecocyc"))
 )
-
+# Set endpoint for query
+endpoint <- "https://sparql.uniprot.org/"
+# Prepare SPARQL query
+query <- "
+    PREFIX up: <http://purl.uniprot.org/core/>
+    SELECT DISTINCT ?db
+    WHERE
+    {
+        ?db a up:Database .
+    }
+"
+# Get results from SPARQL query
+to.ids <- fetch_sparql_output(query, endpoint)$db
+# Strip PURL prefix from database names
+to.ids <- sub("^.+database/", "", to.ids)
+# Remove BioCyc from databases (added earlier)
+to.ids <- setdiff(to.ids, "BioCyc")
 # Expand second combinations
-edge_df <- rbind(edge_df, expand.grid(
-    from = from.ids,
-    to = c("RefSeq", "PIR", "CCDS", "EMBL", "PDB", "BioGRID", "ComplexPortal",
-        "DIP", "STRING", "ChEMBL", "DrugBank", "GuidetoPHARMACOLOGY",
-        "SwissLipids", "Allergome", "ESTHER", "MEROPS", "PeroxiBase", "REBASE",
-        "TCDB", "GlyConnect", "BioMuta", "DMDM", "CPTAC", "ProteomicsDB",
-        "DNASU", "Ensembl", "GeneID", "KEGG", "PATRIC", "UCSC", "WBParaSite",
-        "eggNOG", "GeneTree", "HOGENOM", "OMA", "OrthoDB", "TreeFam",
-        "PlantReactome", "Reactome", "UniPathway", "CollecTF", "ChiTaRS",
-        "GeneWiki","GenomeRNAi", "PHI-base", "DisProt", "IDEAL")
-))
+edge_df <- rbind(edge_df, expand.grid(from = from.ids,to = to.ids))
 # Make nodes data
 node_df <- edge2node(edge_df)
 # Define ambiguous names

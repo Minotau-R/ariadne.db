@@ -1,188 +1,87 @@
 
 meta <- list(
     BugSigDB = data.frame(
-        Title = "BugSigDB mappings v1",
-        Description = "Linkmap of feature pairs from BugSigDB",
-        BiocVersion = "3.23",
-        Genome = NA,
-        SourceType = "TSV",
         SourceUrl = "https://zenodo.org/records/15272273/",
-        SourceVersion = "v1.3.0",
-        Species = NA,
-        TaxonomyId = NA,
-        Coordinate_1_based = FALSE,
+        SourceVersion = "v1.3",
         DataProvider = "BugSigDB",
-        Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
-        RDataClass = "igraph",
-        DispatchClass = "FilePath",
-        Location_Prefix = "https://zenodo.org/records/18788725/",
-        RDataPath = "BugSigDB.gml"
+        Location_Prefix = "https://zenodo.org/records/18788725/"
     ),
     ChocoPhlAn = data.frame(
-        Title = "ChocoPhlAn mappings v1",
-        Description = "Linkmap of feature pairs from ChocoPhlAn",
-        BiocVersion = "3.23",
-        Genome = NA,
-        SourceType = "TSV",
         SourceUrl = "https://zenodo.org/records/17100034/",
         SourceVersion = "v201901b",
-        Species = NA,
-        TaxonomyId = NA,
-        Coordinate_1_based = FALSE,
         DataProvider = "bioBakery",
-        Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
-        RDataClass = "igraph",
-        DispatchClass = "FilePath",
-        Location_Prefix = "https://zenodo.org/records/18788725/",
-        RDataPath = "ChocoPhlAn.gml"
+        Location_Prefix = "https://zenodo.org/records/18788725/"
     ),
     GO = data.frame(
-        Title = "GO mappings v1",
-        Description = "Linkmap of feature pairs from GO",
-        BiocVersion = "3.23",
-        Genome = NA,
-        SourceType = "TSV",
         SourceUrl = "https://current.geneontology.org/ontology/external2go/",
-        SourceVersion = "v2026-01-23 (+)",
-        Species = NA,
-        TaxonomyId = NA,
-        Coordinate_1_based = FALSE,
+        SourceVersion = "v2026-01-23+",
         DataProvider = "Gene Onthology",
-        Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
-        RDataClass = "igraph",
-        DispatchClass = "FilePath",
-        Location_Prefix = "https://zenodo.org/records/18788725/",
-        RDataPath = "GO.gml"
+        Location_Prefix = "https://zenodo.org/records/18788725/"
     ),
     GM = data.frame(
-      Title = "Gut modules v1",
-      Description = "Gut-brain and gut-metabolic modules from Raes Lab",
-      BiocVersion = "3.23",
-      Genome = NA,
-      SourceType = "TSV",
-      SourceUrl = "https://github.com/omixer/omixer-rpmR/tree/main/inst/extdata/",
-      SourceVersion = "v1.0",
-      Species = NA,
-      TaxonomyId = NA,
-      Coordinate_1_based = FALSE,
-      DataProvider = "Raes Lab",
-      Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
-      RDataClass = "igraph",
-      DispatchClass = "FilePath",
-      Location_Prefix = "https://zenodo.org/records/18788725/",
-      RDataPath = "GM.gml"
+        SourceUrl = "https://github.com/omixer/omixer-rpmR/tree/main/inst/extdata/",
+        SourceVersion = "v1",
+        DataProvider = "Raes Lab",
+        Location_Prefix = "https://zenodo.org/records/18788725/"
     ),
     KEGG = data.frame(
-        Title = "KEGG mappings v1",
-        Description = "Linkmap of feature pairs from KEGG",
-        BiocVersion = "3.23",
-        Genome = NA,
-        SourceType = "TSV",
         SourceUrl = "https://www.kegg.jp/",
-        SourceVersion = "v117.0 January 1 2026 (+)",
-        Species = NA,
-        TaxonomyId = NA,
-        Coordinate_1_based = FALSE,
+        SourceVersion = "v117+",
         DataProvider = "Kyoto Encyclopedia of Genes and Genomes",
-        Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
-        RDataClass = "igraph",
-        DispatchClass = "FilePath",
-        Location_Prefix = "https://zenodo.org/records/18788725/",
-        RDataPath = "KEGG.gml"
+        Location_Prefix = "https://zenodo.org/records/18788725/"
     ),
     OTT = data.frame(
-        Title = "OTT mappings v1",
-        Description = "Linkmap of feature pairs from OTT",
-        BiocVersion = "3.23",
-        Genome = NA,
-        SourceType = "TSV",
         SourceUrl = "https://opentreeoflife.github.io/",
-        SourceVersion = "v3.7",
-        Species = NA,
-        TaxonomyId = NA,
-        Coordinate_1_based = FALSE,
+        SourceVersion = "v3.7+",
         DataProvider = "Open Tree Taxonomy",
-        Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
-        RDataClass = "igraph",
-        DispatchClass = "FilePath",
-        Location_Prefix = "https://zenodo.org/records/18788725/",
-        RDataPath = "OTT.gml"
+        Location_Prefix = "https://zenodo.org/records/18788725/"
     ),
     Rhea = data.frame(
-      Title = "Rhea mappings v1",
-      Description = "Linkmap of feature pairs from Rhea",
-      BiocVersion = "3.23",
-      Genome = NA,
-      SourceType = "TSV",
-      SourceUrl = "https://www.rhea-db.org/",
-      SourceVersion = "v140 2026-01-28 (+)",
-      Species = NA,
-      TaxonomyId = NA,
-      Coordinate_1_based = FALSE,
-      DataProvider = "Swiss Institute of Bioinformatics",
-      Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
-      RDataClass = "igraph",
-      DispatchClass = "FilePath",
-      Location_Prefix = "https://zenodo.org/records/18788725/",
-      RDataPath = "Rhea.gml"
+        SourceUrl = "https://www.rhea-db.org/",
+        SourceVersion = "v140+",
+        DataProvider = "Swiss Institute of Bioinformatics",
+        Location_Prefix = "https://zenodo.org/records/18788725/"
     ),
     TIGRFAMs = data.frame(
-      Title = "TIGRFAMs mappings v1",
-      Description = "Linkmap of feature pairs from TIGRFAMs",
-      BiocVersion = "3.23",
-      Genome = NA,
-      SourceType = "TSV",
-      SourceUrl = "https://ftp.ncbi.nlm.nih.gov/hmm/TIGRFAMs/release_15.0/",
-      SourceVersion = "v15.0",
-      Species = NA,
-      TaxonomyId = NA,
-      Coordinate_1_based = FALSE,
-      DataProvider = "NCBI",
-      Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
-      RDataClass = "igraph",
-      DispatchClass = "FilePath",
-      Location_Prefix = "https://zenodo.org/records/18788725/",
-      RDataPath = "TIGRFAMs.gml"
+        SourceUrl = "https://ftp.ncbi.nlm.nih.gov/hmm/TIGRFAMs/release_15.0/",
+        SourceVersion = "v15",
+        DataProvider = "NCBI",
+        Location_Prefix = "https://zenodo.org/records/18788725/"
     ),
     UniProt = data.frame(
-        Title = "UniProt mappings v1",
-        Description = "Linkmap of feature pairs from UniProt",
-        BiocVersion = "3.23",
-        Genome = NA,
-        SourceType = "TSV",
-        SourceUrl = "https://sparql.uniprot.org/",
-        SourceVersion = "v2026_01 (+)",
-        Species = NA,
-        TaxonomyId = NA,
-        Coordinate_1_based = FALSE,
+        SourceUrl = "https://www.uniprot.org/",
+        SourceVersion = "v2026_01+",
         DataProvider = "UniProt",
-        Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
-        RDataClass = "igraph",
-        DispatchClass = "FilePath",
-        Location_Prefix = "https://zenodo.org/records/18788725/",
-        RDataPath = "UniProt.gml"
+        Location_Prefix = "https://zenodo.org/records/18788725/"
     ),
     WoL = data.frame(
-        Title = "WoL mappings v1",
-        Description = "Linkmap of feature pairs from WoL",
-        BiocVersion = "3.23",
-        Genome = NA,
-        SourceType = "TSV",
         SourceUrl = "https://ftp.microbio.me/pub/wol-20April2021/",
         SourceVersion = "v20April2021",
-        Species = NA,
-        TaxonomyId = NA,
-        Coordinate_1_based = FALSE,
         DataProvider = "Web of Life",
-        Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
-        RDataClass = "igraph",
-        DispatchClass = "FilePath",
-        Location_Prefix = "https://zenodo.org/records/18788725/",
-        RDataPath = "WoL.gml"
+        Location_Prefix = "https://zenodo.org/records/18788725/"
     )
 )
 
 meta <- do.call(rbind, meta)
+
+meta <- cbind(meta, data.frame(
+    Title = paste(rownames(meta), "graph", meta$SourceVersion),
+    Description = paste("Graph of feature mappings from", rownames(meta)),
+    BiocVersion = "3.23", Genome = NA, SourceType = "TSV", Species = NA,
+    TaxonomyId = NA, Coordinate_1_based = FALSE,
+    Maintainer = "Giulio Benedetti <giulio.benedetti@utu.fi>",
+    RDataClass = "igraph", DispatchClass = "FilePath",
+    RDataPath = paste0(rownames(meta), ".gml")
+))
+
+col.names <- c(
+    "Title", "Description", "BiocVersion", "Genome", "SourceType", "SourceUrl",
+    "SourceVersion", "Species", "TaxonomyId", "Coordinate_1_based",
+    "DataProvider", "Maintainer", "RDataClass", "DispatchClass",
+    "Location_Prefix", "RDataPath"
+)
+
+meta <- meta[col.names]
 
 write.csv(meta, "metadata.csv", row.names = FALSE)
 

@@ -22,6 +22,7 @@ Depends:
     R (>= 4.1)
 Imports:
     AnnotationHub,
+    data.table,
     jsonlite,
     httr2,
     rvest
