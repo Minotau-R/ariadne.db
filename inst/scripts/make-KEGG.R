@@ -35,6 +35,7 @@ for( pair in db_pairs ){
 node_df <- edge2node(edge_df)
 # Define ambiguous names
 node_df$name[node_df$specific == "up"] <- "uniprotkb"
+node_df$name[node_df$specific == "compound"] <- "cpd"
 # Use generic names in edges data
 edge_df[] <- lapply(edge_df, function(col) node_df$name[match(col, node_df$specific)])
 # Combine to graph

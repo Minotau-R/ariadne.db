@@ -4,8 +4,8 @@ library(stringr)
 
 # Set resource name
 res.name <- "BugSigDB"
-# Set url for BugSigDB v1.3.0
-url <- "https://zenodo.org/records/15272273/"
+# Set url for BugSigDB v1
+url <- "https://zenodo.org/records/5606166/"
 # Fetch file names from Zenodo
 file_names <- fetch_zenodo_resource(basename(url))
 # Filter desired file names
@@ -18,6 +18,7 @@ file_names <- str_split(file_names, "_", simplify = TRUE)
 edge_df <- as.data.frame(file_names)
 colnames(edge_df) <- c("from", "to")
 # Add url paths for resources
+url <- paste0(dirname(url), "/{version}/")
 edge_df <- build_edge_paths(edge_df, res.name, url)
 # Make nodes data
 node_df <- edge2node(edge_df)

@@ -11,7 +11,7 @@ build_edge_paths <- function(edges, resource, repo){
         ChocoPhlAn = function(from, to, repo){
             paste0(repo, "files/map_", from, "_", to, ".txt.gz")
         },
-        GM = function(from, to, repo){
+        Misc = function(from, to, repo){
             if( from == "gmm" ){
                 file_name <- "GMMs.v1.07.txt"
             }else if( from == "gbm" ){
@@ -31,7 +31,7 @@ build_edge_paths <- function(edges, resource, repo){
             prefix <- ifelse(to == "ko", "kegg", prefix)
             prefix <- ifelse(to == "protein", "metacyc", prefix)
             # Create path
-            paste0(repo, prefix, "/", to, ".map.xz")
+            paste0(repo, "function/", prefix, "/", to, ".map.xz")
         },
         function(from, to, repo) NA
     )
@@ -58,7 +58,7 @@ build_node_paths <- function(nodes, resource, repo){
         BugSigDB = function(name, spec, repo){
             paste0(repo, "files/bugsigdb_signatures_mixed_ncbi.gmt")
         },
-        GM = function(name, spec, repo){
+        Misc = function(name, spec, repo){
             file_name <- switch(
                 name, gmm = "GMMs.v1.07.names", gbm = "GBMs.v1.0.names", NA
             )

@@ -15,7 +15,7 @@ from.ids <- c("uniprotkb", "uniref50", "uniref90", "uniref100")
 edge_df <- rbind(
     edge_df,
     data.frame(from = "taxname", to = "taxid"),
-    expand.grid(from = from.ids, to = c("rhea", "metacyc", "ecocyc"))
+    expand.grid(from = from.ids, to = c("enzyme", "rhea", "metacyc", "ecocyc"))
 )
 # Set endpoint for query
 endpoint <- "https://sparql.uniprot.org/"
@@ -25,7 +25,7 @@ query <- "
     SELECT DISTINCT ?db
     WHERE
     {
-        ?db a up:Database .
+        ?db a up:Database.
     }
 "
 # Get results from SPARQL query
@@ -33,9 +33,9 @@ to.ids <- fetch_sparql_output(query, endpoint)$db
 # Strip PURL prefix from database names
 to.ids <- sub("^.+database/", "", to.ids)
 # Remove BioCyc from databases (added earlier)
-to.ids <- setdiff(to.ids, "BioCyc")
+to.ids <- setdiff(to.ids, c("BioCyc", "ENZYME"))
 # Expand second combinations
-edge_df <- rbind(edge_df, expand.grid(from = from.ids,to = to.ids))
+edge_df <- rbind(edge_df, expand.grid(from = from.ids, to = to.ids))
 # Make nodes data
 node_df <- edge2node(edge_df)
 # Define ambiguous names

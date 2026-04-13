@@ -5,7 +5,8 @@ library(stringr)
 # Set resource name
 res.name <- "WoL"
 # Set url for WoL v20April2021
-url <- "https://ftp.microbio.me/pub/wol-20April2021/function/"
+base_url <- "https://ftp.microbio.me/pub/"
+url <- paste0(base_url, "wol-20April2021/function/")
 # Fetch page links
 links <- fetch_page_links(url)
 # Filter out parent directory links and anchors
@@ -27,6 +28,7 @@ edge_df$to <- str_remove_all(edge_df$to, ".map.xz$")
 # Remove unnecessary pairs
 edge_df <- edge_df[!edge_df$to %in% c("component", "function", "process", "uniref"), ]
 # Add url paths for resources
+url <- paste0(base_url, "{version}/")
 edge_df <- build_edge_paths(edge_df, res.name, url)
 # Make nodes data
 node_df <- edge2node(edge_df)
