@@ -36,6 +36,7 @@ feature.dictionary <- list(
     ko = "kegg",
     merops = "MEROPS",
     metacyc = c("MetaCyc", "METACYC"),
+    metacyc_enzrxn = "enzrxn",
     oma = "OMA",
     orthodb = "OrthoDB",
     patric = "PATRIC",

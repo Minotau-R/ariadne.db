@@ -5,12 +5,12 @@ library(igraph)
 res.name <- "UniProt"
 # Expand first combinations
 edge_df <- expand.grid(
-    from = c("uniref50", "uniref90", "uniref100"),
+    from = c("uniref50", "uniref90"),
     to = c("taxname", "taxid", "uniprotkb"),
     stringsAsFactors = FALSE
 )
 # Set from ids
-from.ids <- c("uniprotkb", "uniref50", "uniref90", "uniref100")
+from.ids <- c("uniprotkb", "uniref50", "uniref90")
 # Define additional pairs
 edge_df <- rbind(
     edge_df,

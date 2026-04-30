@@ -27,11 +27,14 @@ build_edge_paths <- function(edges, resource, repo){
         },
         WoL = function(from, to, repo){
             # Account for exceptions
-            prefix <- ifelse(to == "all", "go", to)
-            prefix <- ifelse(to == "ko", "kegg", prefix)
-            prefix <- ifelse(to == "protein", "metacyc", prefix)
-            # Create path
-            paste0(repo, prefix, "/", to, ".map.xz")
+            if( from == "uniref90" ){
+                prefix <- ifelse(to == "all", "go/uniref", "uniref/idmaps")
+                file_name <- paste0(prefix, "/", to, ".map.xz")
+            }else{
+                prefix <- ifelse(to == "BioCyc", "protein", to)
+                file_name <- paste0("metacyc/", prefix, "-to-", to, ".map")
+            }
+            paste0(repo, file_name)
         },
         function(from, to, repo) NA
     )
