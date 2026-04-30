@@ -42,6 +42,7 @@ to_remove <- c(
 )
 edge_df <- edge_df[!edge_df$to %in% to_remove, ]
 # Add url paths for resources
+url <- paste0(base_url, "{version}/")
 edge_df <- build_edge_paths(edge_df, res.name, url)
 # Avoid multiple specifics for some nodes
 edge_df$to[edge_df$from == "BioCyc"] <- "protein"
@@ -55,8 +56,8 @@ node_df$name[node_df$specific == "reaction"] <- "metacyc_rxn"
 node_df$name[node_df$specific == "pathway"] <- "metacyc_path"
 node_df$name[node_df$specific == "super_pathway"] <- "metacyc_spath"
 # Use generic names in edges data
-edge_df[ , c("from", "to")] <- lapply(
-    edge_df[ , c("from", "to")],
+edge_df[c("from", "to")] <- lapply(
+    edge_df[c("from", "to")],
     function(col) node_df$name[match(col, node_df$specific)]
 )
 # Combine to graph

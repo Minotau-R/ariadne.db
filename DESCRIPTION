@@ -1,5 +1,5 @@
 Package: ariadne.db
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
     c(person(given = "Giulio", family = "Benedetti", role = c("aut", "cre"),
           email = "giulio.benedetti@utu.fi",
@@ -22,15 +22,18 @@ Depends:
     R (>= 4.1)
 Imports:
     AnnotationHub,
+    data.table,
     jsonlite,
     httr2,
     rvest
 Suggests:
     BiocStyle,
+    dplyr,
     igraph,
     KEGGREST,
     remotes,
     rmarkdown,
+    stats,
     stringr,
     testthat (>= 3.0.0)
 URL: https://github.com/Minotau-R/ariadne.db

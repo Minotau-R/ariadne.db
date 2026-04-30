@@ -17,12 +17,13 @@ colnames(edge_df) <- c("from", "to")
 # Filter name mappings
 edge_df <- edge_df[!(edge_df$from == "name" | edge_df$to == "name"), ]
 # Add url paths for resources
+url <- paste0(dirname(url), "/{version}/")
 edge_df <- build_edge_paths(edge_df, res.name, url)
 # Make nodes data
 node_df <- edge2node(edge_df)
 # Use generic names in edges data
-edge_df[ , c("from", "to")] <- lapply(
-    edge_df[ , c("from", "to")],
+edge_df[c("from", "to")] <- lapply(
+    edge_df[c("from", "to")],
     function(col) node_df$name[match(col, node_df$specific)]
 )
 # Combine to graph

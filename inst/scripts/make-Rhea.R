@@ -3,16 +3,45 @@ library(igraph)
 
 # Set resource name
 res.name <- "Rhea"
+# List from ids
+from.ids <- c("rhea", "chebi")
 # List to ids
 to.ids <- c(
     "chebi", "ECOCYC", "enzyme", "GO_", "macie", "METACYC", "reaction", "reactome"
 )
 # Expand first combinations
-edge_df <- expand.grid(
-    from = "rhea",
-    to = to.ids,
-    stringsAsFactors = FALSE
+edge_df <- rbind(
+    expand.grid(from = "rhea", to = to.ids),
+    expand.grid(
+        from = from.ids,
+        to = c("inchi", "inchikey", "smiles", "compound", "drug")
+    )
 )
+# Set endpoint for query
+endpoint <- "https://sparql.rhea-db.org/"
+# Prepare SPARQL query
+query <- "
+    PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
+    SELECT ?db
+    WHERE {
+        ?chebi oboInOwl:hasDbXref ?ext.
+        FILTER(CONTAINS(?ext, ':'))
+        BIND(STRBEFORE(?ext, ':') AS ?db)
+    }
+    GROUP BY ?db
+    HAVING (COUNT(*) >= 10) 
+"
+# Get results from SPARQL query
+to.ids <- fetch_sparql_output(query, endpoint)$db
+# Remove KEGG from databases (added earlier)
+# metacyc link is different from one before (need to find a way to keep both)
+to.ids <- setdiff(
+    to.ids,
+    # added  # problem  # nobio   # small       # ?    # disc        
+    c("KEGG","MetaCyc", "Patent", "Pesticides", "CBA", "ChemIDplus")
+)
+# Add chebi cross-references
+edge_df <- rbind(edge_df, expand.grid(from = from.ids, to = to.ids))
 # Make nodes data
 node_df <- edge2node(edge_df)
 # Define ambiguous names

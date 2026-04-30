@@ -13,7 +13,7 @@ Each GML* file corresponds to one source database and includes a graph:
 - nodes list the available features with their ariadne names (`name`),
   database-specific names (`specific`) and self-generated identifiers (`id`)
 
-* GML = Graph Modelling Language
+*GML = Graph Modelling Language
 
 ## Usage
 
