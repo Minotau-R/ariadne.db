@@ -31,10 +31,10 @@ build_edge_paths <- function(edges, resource, repo){
                 prefix <- ifelse(to == "all", "go/uniref", "uniref/idmaps")
                 file_name <- paste0(prefix, "/", to, ".map.xz")
             }else{
-                prefix <- ifelse(to == "BioCyc", "protein", to)
+                prefix <- ifelse(from == "BioCyc", "protein", from)
                 file_name <- paste0("metacyc/", prefix, "-to-", to, ".map")
             }
-            paste0(repo, file_name)
+            paste0(repo, "function/", file_name)
         },
         function(from, to, repo) NA
     )

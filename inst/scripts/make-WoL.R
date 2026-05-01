@@ -4,8 +4,9 @@ library(stringr)
 
 # Set resource name
 res.name <- "WoL"
-# Set url for WoL v20April2021
-url <- "https://ftp.microbio.me/pub/wol2/function/"
+# Set url for WoL v2
+base_url <- "https://ftp.microbio.me/pub/"
+url <- paste0(base_url, "wol2/function/")
 # List key dirs
 dirs <- c("uniref/idmaps/", "go/uniref/")
 # Initialise file names
@@ -45,13 +46,13 @@ edge_df <- edge_df[!edge_df$to %in% to_remove, ]
 url <- paste0(base_url, "{version}/")
 edge_df <- build_edge_paths(edge_df, res.name, url)
 # Avoid multiple specifics for some nodes
-edge_df$to[edge_df$from == "BioCyc"] <- "protein"
+edge_df$to[edge_df$to == "BioCyc"] <- "protein"
 edge_df$to[edge_df$to == "reaction_list"] <- "reaction"
 # Make nodes data
 node_df <- edge2node(edge_df)
 # Define ambiguous names
 node_df$name[node_df$specific == "all"] <- "go"
-node_df$name[node_df$specific == "protein"] <- "metacyc_pr"
+node_df$name[node_df$specific == "protein"] <- "metacyc_prt"
 node_df$name[node_df$specific == "reaction"] <- "metacyc_rxn"
 node_df$name[node_df$specific == "pathway"] <- "metacyc_path"
 node_df$name[node_df$specific == "super_pathway"] <- "metacyc_spath"

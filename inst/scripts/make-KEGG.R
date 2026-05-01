@@ -34,8 +34,13 @@ for( pair in db_pairs ){
 # Make nodes data
 node_df <- edge2node(edge_df)
 # Define ambiguous names
+kdict <- c(
+    compound = "cpd", reaction = "rxn", pathway = "path", module = "mod",
+    network = "net", glycan = "glycan", drug = "drug", disease = "disease",
+    genes = "genes"
+)
+node_df$name[match(names(kdict), node_df$specific)] <- paste0("kegg_", kdict)
 node_df$name[node_df$specific == "up"] <- "uniprotkb"
-node_df$name[node_df$specific == "compound"] <- "cpd"
 # Use generic names in edges data
 edge_df[] <- lapply(edge_df, function(col) node_df$name[match(col, node_df$specific)])
 # Combine to graph

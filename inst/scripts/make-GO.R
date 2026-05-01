@@ -21,7 +21,8 @@ edge_df <- build_edge_paths(edge_df, res.name, url)
 # Make nodes data
 node_df <- edge2node(edge_df)
 # Define ambiguous names
-node_df$name[node_df$specific == "kegg_reaction"] <- "reaction"
+node_df$name[node_df$specific == "kegg_reaction"] <- "kegg_rxn"
+node_df$name[node_df$specific == "metacyc"] <- "metacyc_rxn"
 # Use generic names in edges data
 edge_df[c("from", "to")] <- lapply(
     edge_df[c("from", "to")],
