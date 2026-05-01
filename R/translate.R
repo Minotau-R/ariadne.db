@@ -1,5 +1,4 @@
 
-
 feature.dictionary <- list(
     agr = "AGR",
     allergome = "Allergome",
