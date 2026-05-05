@@ -67,6 +67,15 @@ build_node_paths <- function(nodes, resource, repo){
             )
             paste0(repo, file_name)
         },
+        WoL = function(name, spec, repo){
+            # Add names for metacyc ids
+            file_name <- ifelse(
+                grepl("metacyc", name, fixed = TRUE),
+                paste0("metacyc/", spec, "_name.txt"), NA
+            )
+            # Build url
+            paste0(repo, "function/", file_name)
+        },
         function(from, to, repo) NA
     )
     # Build resource paths
@@ -124,12 +133,14 @@ fetch_page_links <- function(url){
 #' @importFrom data.table fread
 #' @importFrom httr2 request req_method req_body_form resp_body_string
 #'   req_headers req_perform
-fetch_sparql_output <- function(query, endpoint){
+fetch_sparql_output <- function(query, endpoint, timeout = 1e6, max_tries = 2L){
     # Build request with Accept header for CSV format
     req <- request(endpoint) |>
         req_method("POST") |>
         req_body_form(query = query) |>
-        req_headers(Accept = "text/csv")
+        req_headers(Accept = "text/csv") |>
+        req_timeout(timeout) |>
+        req_retry(max_tries = max_tries)
     # Get response
     resp <- req_perform(req)
     # Parse CSV content into data frame
